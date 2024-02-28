@@ -1,3 +1,4 @@
+let libriagg = [];
 fetch("https://striveschool-api.herokuapp.com/books")
   .then((response) => {
     console.log(fetch);
@@ -22,6 +23,10 @@ fetch("https://striveschool-api.herokuapp.com/books")
       btn2.innerText = "Aggiungi carrello";
       btn1.addEventListener("click", () => {
         row.removeChild(card);
+      });
+      btn2.addEventListener("click", () => {
+        libriagg.push(book.title);
+        localStorage.setItem(book.title, JSON.stringify(book.price));
       });
 
       const card = document.createElement("div");
